@@ -1,13 +1,19 @@
+import csv
 import sqlite3
 
+
 class Word:
-    text = '';
-    context = '';
+    text = ''
+    context = ''
+    translate = ''
 
     def __init__(self, text):
         self.text = text
 
+
 class Base(object):
+    # convert to object
+
     data = []
 
     def __init__(self, source):
@@ -39,3 +45,13 @@ class Text(Base):
         for word in f.readlines():
             self.data.append(Word(word))
         f.close()
+
+
+class Csv(Base):
+    def read(self):
+        with open(self.source, 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                word = Word(row[0])
+                word.translate = row[1]
+                self.data.append(word)

@@ -11,11 +11,15 @@ Add your settings in config.py
 ## Launching
 For text file:
 ```
-  python export.py text
+  python3 export.py text
 ```
 For kindle:
 ```
-  python export.py kindle
+  python3 export.py kindle
+```
+For csv:
+```
+  python3 export.py csv
 ```
 
 Сleaning Kindle dictionary:
